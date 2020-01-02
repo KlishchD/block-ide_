@@ -43,8 +43,8 @@ public class Converter {
         for (BlockModel current : graph.getBlocks()) {
             g.put(current.getId(), current);
         }
-        String body = dfs(0, g).toString();
-        if (lang == Lang.JAVA) {
+        String body = dfs(g.get(0).getNextId(), g).toString();
+        if (lang == Lang.JAVA && g.get(0).getNextId() != null) {
             body = addTabs(body);
         }
         return LanguageTemplate.getFullProgram(body, lang);
