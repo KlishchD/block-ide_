@@ -6,6 +6,7 @@ class Block {
         this.left = left;
         this.top = top;
         this.arguments = [];
+        this.childrenIds = [];
     }
 
     setLeft(left) {
@@ -27,12 +28,22 @@ class Block {
     setName(name) {
         this.name = name;
     }
+    setChildrens (childrenIds) {
+        this.childrenIds = childrenIds;
+    }
+    addChild (id) {
+        this.childrenIds.push(id);
+    }
 
     addArgument(name, value) {
         this.arguments.push({
             name: name,
             value: value
         });
+    }
+
+    getChildrens() {
+        return this.childrenIds;
     }
 
     getLeft() {

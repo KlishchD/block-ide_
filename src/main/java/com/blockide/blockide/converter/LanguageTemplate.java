@@ -12,7 +12,8 @@ public final class LanguageTemplate {
 
     private static final String JAVA_HEADER = "import java.util.Scanner;\n\n" +
             "public class Main {\n" +
-            "  public static void main (String args[]){\n";
+            "  public static void main (String args[]){\n" +
+            "    Scanner scanner = new Scanner(System.in);\n";
 
     private static final String JAVA_FOOTER = "  }\n" +
             "}";

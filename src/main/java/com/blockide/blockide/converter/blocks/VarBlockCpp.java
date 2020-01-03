@@ -33,7 +33,7 @@ public class VarBlockCpp extends Block {
     @Override
     public String generateCode() {
         String code;
-        switch (variableType) {
+        switch (variableType.toLowerCase()) {
             case "string":
                 code = String.format("string %s;", variableName);
                 break;

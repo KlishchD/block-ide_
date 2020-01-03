@@ -32,6 +32,27 @@ public class ReadBlockJava extends Block {
         if ("int".equalsIgnoreCase(variableType)) {
             return variableName + " = scanner.nexInt();";
         }
-        throw new IllegalArgumentException("Unsupported type for read java block. Type: " + variableType);
+        String code;
+        switch (variableType.toLowerCase()) {
+            case "string":
+                code = String.format("%s = scanner.next()", variableName);
+                break;
+            case "int":
+                code = String.format("%s = scanner.nextInt();", variableName);
+                break;
+
+            case "boolean":
+                code = String.format("%s = scanner.nextBoolean();", variableName);
+                break;
+            case "double":
+                code = String.format("%s = scanner.nextDouble();", variableName);
+                break;
+            case "char":
+                code = String.format("%s = scanner.nextChar();", variableName);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported type for read java block. Type: " + variableType);
+        }
+        return code;
     }
 }
