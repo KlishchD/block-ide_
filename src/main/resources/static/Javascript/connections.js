@@ -23,6 +23,7 @@ function updateLine(f, t) {
     line.css("-moz-transform", "rotate(" + calc + "deg)");
     line.css("-o-transform", "rotate(" + calc + "deg)");
 }
+
 function createline(f, t) {
     let ay = $("#" + f).position().top + 12;
     let ax = $("#" + f).position().left + 50;
@@ -38,8 +39,104 @@ function createline(f, t) {
     }
     let calc = 180 * (Math.atan((ax - bx) / (by - ay)) / Math.PI);
     let length = Math.sqrt((ax - bx) * (ax - bx) + (ay - by) * (ay - by));
-    $("#workplace").prepend("<div id='line" + f + "o" + t +"' style='height:" + length + "px;width:1px;background-color:black;position:absolute;top:" + (ay) + "px;left:" + (ax) + "px;transform:rotate(" + calc + "deg);-ms-transform:rotate(" + calc + "deg);transform-origin:0% 0%;-moz-transform:rotate(" + calc + "deg);-moz-transform-origin:0% 0%;-webkit-transform:rotate(" + calc + "deg);-webkit-transform-origin:0% 0%;-o-transform:rotate(" + calc + "deg);-o-transform-origin:0% 0%;'></div>");
+    $("#workplace").prepend("<div id='line" + f + "o" + t + "' style='height:" + length + "px;width:1px;background-color:black;position:absolute;top:" + (ay) + "px;left:" + (ax) + "px;transform:rotate(" + calc + "deg);-ms-transform:rotate(" + calc + "deg);transform-origin:0% 0%;-moz-transform:rotate(" + calc + "deg);-moz-transform-origin:0% 0%;-webkit-transform:rotate(" + calc + "deg);-webkit-transform-origin:0% 0%;-o-transform:rotate(" + calc + "deg);-o-transform-origin:0% 0%;'></div>");
 }
+
+function createConnection(f, t) {
+    if (f === null || t === null) {
+        return;
+    }
+    if (t === f) {
+        alert("Error same elements");
+        return;
+    }
+    if (t === "0") {
+        alert("Start can't be a sun");
+        return;
+    }
+    for (let i = 0; i < last; ++i) {
+        if (blocks[i].getNextId() === t) {
+            alert("No more than one parent");
+            return;
+        }
+        for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
+            if (blocks[i].getChildrens()[j] === t) {
+                alert("No more than one parent");
+                return;
+            }
+        }
+    }
+    if (blocks[f].getNextId() !== null) {
+        alert("No more than one sun");
+        return;
+    }
+    createline(f, t);
+    blocks[from].setNextId(to);
+}
+
+function createChildrenConnection(f, t) {
+    if (f === null || t === null) {
+        return;
+    }
+    if (t === f) {
+        alert("Error same elements");
+        return;
+    }
+    if (t === "0") {
+        alert("Start can't be a sun");
+        return;
+    }
+    for (let i = 0; i < last; ++i) {
+        if (blocks[i].getNextId() === t) {
+            alert("No more than one parent");
+            return;
+        }
+        for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
+            if (blocks[i].getChildrens()[j] === t) {
+                alert("No more than one parent");
+                return;
+            }
+        }
+    }
+    if (blocks[f].getNextId() !== null) {
+        alert("No more than one sun");
+        return;
+    }
+    createline(f, t);
+    blocks[f].addChild(t);
+    if (blocks[f].getChildrens().length === 1) $("#line" + f + "o" + t).css("background-color", "green");
+    else $("#line" + f + "o" + t).css("background-color", "red");
+}
+
+function deleteConnection (f, t) {
+    if (f === null || t === null) {
+        return;
+    }
+    let child = false;
+    for (let i = 0; i < blocks[f].getChildrens().length; ++i) {
+        if (blocks[f].getChildrens()[i] === t) {
+            child = true
+        }
+    }
+    if (blocks[f].getNextId() !== t && !child) {
+        alert("Haven't exist this connection");
+        return;
+    }
+    if (child) {
+        let newChildrenIds = [];
+        for (let i = 0; i < blocks[f].getChildrens().length; ++i) {
+            if (blocks[f].getChildrens()[i] !== t) {
+                newChildrenIds.push(blocks[f].getChildrens()[i]);
+            }
+        }
+        blocks[f].setChildrens(newChildrenIds);
+    } else {
+        blocks[f].setNextId(null);
+    }
+    $("#line" + f + "o" + t).remove();
+
+}
+
 $(document).mousemove(function (e) {
     for (let i = 0; i < last; ++i) {
         for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
@@ -54,71 +151,14 @@ $(document).mousemove(function (e) {
 
 $(document).keydown(function (e) {
     if (e.which === 13 || e.which === 107) {
-        if (from === null || to === null) {
-            return;
-        }
-        if (to === from) {
-            alert("Error same elements");
-            return;
-        }
-        if (to === "0") {
-            alert("Start can't be a sun");
-            return;
-        }
-        for (let i = 0; i < last; ++i) {
-            if (blocks[i].getNextId() === to) {
-                alert("No more than one parent");
-                return;
-            }
-            for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
-                if (blocks[i].getChildrens()[j] === to) {
-                    alert("No more than one parent");
-                    return;
-                }
-            }
-        }
-        if (blocks[from].getNextId() !== null) {
-            alert("No more than one sun");
-            return;
-        }
-        createline(from, to);
-        if (e.which === 13) {
-            blocks[from].setNextId(to);
-        } else {
-            blocks[from].addChild(to);
-            if (blocks[from].getChildrens().length === 1) $("#line" + from + "o" + to).css("background-color", "green");
-            else $("#line" + from + "o" + to).css("background-color", "red");
-        }
+        if (e.which === 13) createConnection(from, to);
+        else createChildrenConnection(from, to);
         from = null;
         to = null;
     }
 
     if (e.which === 46) {
-        if (from === null || to === null) {
-            return;
-        }
-        let child = false;
-        for (let i = 0; i < blocks[from].getChildrens().length; ++i) {
-            if (blocks[from].getChildrens()[i] === to) {
-                child = true
-            }
-        }
-        if (blocks[from].getNextId() !== to && !child) {
-            alert("Haven't exist this connection");
-            return;
-        }
-        if (child) {
-            let newChildrenIds = [];
-            for (let i = 0; i < blocks[from].getChildrens().length; ++i) {
-                if (blocks[from].getChildrens()[i] !== to) {
-                    newChildrenIds.push(blocks[from].getChildrens()[i]);
-                }
-            }
-            blocks[from].setChildrens(newChildrenIds);
-        } else {
-            blocks[from].setNextId(null);
-        }
-        $("#line" + from + "o" + to).remove();
+        deleteConnectoin(from, to);
         from = null;
         to = null;
     }

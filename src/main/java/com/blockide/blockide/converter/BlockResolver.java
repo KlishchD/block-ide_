@@ -26,6 +26,8 @@ public final class BlockResolver {
         register("var", Lang.JAVA, VarBlockJava.class);
         register("start", Lang.JAVA, StartBlock.class);
         register("start", Lang.CPP, StartBlock.class);
+        register("assign", Lang.JAVA, AssignBlock.class);
+        register("assign", Lang.CPP, AssignBlock.class);
     }
 
     private static BlockResolver instance;

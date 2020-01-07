@@ -6,6 +6,7 @@ class Block {
         this.left = left;
         this.top = top;
         this.arguments = [];
+        this.childrenIds = [];
     }
 
     setLeft(left) {
@@ -27,12 +28,22 @@ class Block {
     setName(name) {
         this.name = name;
     }
+    setChildrens (childrenIds) {
+        this.childrenIds = childrenIds;
+    }
+    addChild (id) {
+        this.childrenIds.push(id);
+    }
 
     addArgument(name, value) {
         this.arguments.push({
             name: name,
             value: value
         });
+    }
+
+    getChildrens() {
+        return this.childrenIds;
     }
 
     getLeft() {
@@ -98,6 +109,7 @@ $(document).ready(function () {
             data: JSON.stringify({"graph": { "blocks": blocks}, "lang" : ($("#languageSelection").val() === "C++" ? "cpp" : "java")}),
             success : function (data) {
                 document.getElementById("code").innerText = data;
+                hljs.highlightBlock(document.getElementById("code"));
             }
         });
     });

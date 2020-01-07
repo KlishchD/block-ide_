@@ -73,9 +73,13 @@ $(document).ready(function () {
         blocks[last].addArgument("upperBound", text);
         ++last;
     });
-       /* $("#Assign").click(function () {
-            $("#workplace").prepend("<p id =" + last + " class = 'Block' > Assign </p>");
-            setup();
-            ++last;
-        });*/
+    $("#assign").click(function () {
+        $("#workplace").prepend("<p id =" + last + " class = 'block' > Assign </p>");
+        setup("assign");
+        let text = prompt("Type expresion");
+        blocks[last].addArgument("expresion", text);
+        prompt("Type variable name");
+        blocks[last].addArgument("variableName", text);
+        ++last;
+    });
 });

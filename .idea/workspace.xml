@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="300b685e-ae2a-40cd-9cda-d2f6c14705be" name="Default Changelist" comment="Connect between server and ui.">
+    <list default="true" id="300b685e-ae2a-40cd-9cda-d2f6c14705be" name="Default Changelist" comment="3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/controller/RunController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/AssignBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/Javascript/savaAndLoad.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/controller/ConvertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/controller/ConvertController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/LanguageTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/LanguageTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/ReadBlockJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/ReadBlockJava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/VarBlockCpp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/VarBlockCpp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/VarBlockJava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/blocks/VarBlockJava.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/BlockResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blockide/blockide/converter/BlockResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/Javascript/addBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Javascript/addBlock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/Javascript/connections.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Javascript/connections.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/Javascript/frontMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/Javascript/frontMain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/controller/ConvertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/controller/ConvertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/BlockResolver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/BlockResolver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/LanguageTemplate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/LanguageTemplate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/ReadBlockJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/ReadBlockJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/VarBlockCpp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/VarBlockCpp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/VarBlockJava.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/blockide/blockide/converter/blocks/VarBlockJava.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Javascript/addBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Javascript/addBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Javascript/connections.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Javascript/connections.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Javascript/frontMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Javascript/frontMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +33,7 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -103,7 +113,10 @@
       <workItem from="1577818351546" duration="24940000" />
       <workItem from="1577956048519" duration="24939000" />
       <workItem from="1577997256048" duration="1700000" />
-      <workItem from="1578059600983" duration="14421000" />
+      <workItem from="1578059600983" duration="16707000" />
+      <workItem from="1578167801298" duration="1509000" />
+      <workItem from="1578396749394" duration="569000" />
+      <workItem from="1578397546642" duration="8971000" />
     </task>
     <task id="LOCAL-00001" summary="_">
       <created>1577982272975</created>
@@ -119,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577997481439</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="if while forTo forDownTo">
+      <created>1578074260030</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1578074260030</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,7 +171,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="_" />
     <MESSAGE value="Connect between server and ui." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect between server and ui." />
+    <MESSAGE value="if while forTo forDownTo" />
+    <MESSAGE value="3" />
+    <option name="LAST_COMMIT_MESSAGE" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="222" key="#Deployment" timestamp="1577998190247">
@@ -162,10 +184,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="552" y="222" key="#Notifications/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577981736660" />
-    <state x="765" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1577990649452">
+    <state x="765" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1578168791277">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="765" y="270" key="#com.intellij.ide.util.MemberChooser/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577990649452" />
+    <state x="765" y="270" key="#com.intellij.ide.util.MemberChooser/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578168791277" />
     <state x="704" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1577822013836">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -178,10 +200,10 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="764" y="474" width="1103" height="580" key="#xdebugger.evaluate/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577827400533" />
-    <state x="396" y="93" width="1126" height="858" key="CommitChangelistDialog2" timestamp="1577998191272">
+    <state x="396" y="93" width="1126" height="858" key="CommitChangelistDialog2" timestamp="1578169339111">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="396" y="93" width="1126" height="858" key="CommitChangelistDialog2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577998191272" />
+    <state x="396" y="93" width="1126" height="858" key="CommitChangelistDialog2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578169339111" />
     <state x="168" y="255" key="DiffContextDialog" timestamp="1577998010529">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -194,78 +216,78 @@
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="841" y="459" width="261" height="201" key="Github.ShareDialog/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577987241104" />
-    <state width="938" height="348" key="GridCell.Tab.0.bottom" timestamp="1578073925433">
+    <state width="929" height="432" key="GridCell.Tab.0.bottom" timestamp="1578406633843">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.0.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073925433" />
-    <state width="938" height="348" key="GridCell.Tab.0.center" timestamp="1578073925433">
+    <state width="929" height="432" key="GridCell.Tab.0.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633843" />
+    <state width="929" height="432" key="GridCell.Tab.0.center" timestamp="1578406633842">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.0.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073925433" />
-    <state width="938" height="348" key="GridCell.Tab.0.left" timestamp="1578073925433">
+    <state width="929" height="432" key="GridCell.Tab.0.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633842" />
+    <state width="929" height="432" key="GridCell.Tab.0.left" timestamp="1578406633842">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.0.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073925433" />
-    <state width="938" height="348" key="GridCell.Tab.0.right" timestamp="1578073925433">
+    <state width="929" height="432" key="GridCell.Tab.0.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633842" />
+    <state width="929" height="432" key="GridCell.Tab.0.right" timestamp="1578406633842">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.0.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073925433" />
-    <state width="938" height="348" key="GridCell.Tab.1.bottom" timestamp="1578073964476">
+    <state width="929" height="432" key="GridCell.Tab.0.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633842" />
+    <state width="929" height="432" key="GridCell.Tab.1.bottom" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.1.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073964476" />
-    <state width="938" height="348" key="GridCell.Tab.1.center" timestamp="1578073964476">
+    <state width="929" height="432" key="GridCell.Tab.1.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.1.center" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.1.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073964476" />
-    <state width="938" height="348" key="GridCell.Tab.1.left" timestamp="1578073964476">
+    <state width="929" height="432" key="GridCell.Tab.1.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.1.left" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.1.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073964476" />
-    <state width="938" height="348" key="GridCell.Tab.1.right" timestamp="1578073964476">
+    <state width="929" height="432" key="GridCell.Tab.1.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.1.right" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="938" height="348" key="GridCell.Tab.1.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578073964476" />
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1577995803308">
+    <state width="929" height="432" key="GridCell.Tab.1.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.2.bottom" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577995803308" />
-    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1577995803308">
+    <state width="929" height="432" key="GridCell.Tab.2.bottom/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.2.center" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577995803308" />
-    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1577995803308">
+    <state width="929" height="432" key="GridCell.Tab.2.center/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.2.left" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577995803308" />
-    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1577995803308">
+    <state width="929" height="432" key="GridCell.Tab.2.left/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
+    <state width="929" height="432" key="GridCell.Tab.2.right" timestamp="1578406633483">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.2.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577995803308" />
+    <state width="929" height="432" key="GridCell.Tab.2.right/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578406633483" />
     <state x="468" y="206" key="SettingsEditor" timestamp="1577997692622">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="468" y="206" key="SettingsEditor/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577997692622" />
-    <state x="480" y="268" key="Vcs.Push.Dialog.v2" timestamp="1577998245531">
+    <state x="480" y="268" key="Vcs.Push.Dialog.v2" timestamp="1578169347343">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="480" y="268" key="Vcs.Push.Dialog.v2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577998245531" />
+    <state x="480" y="268" key="Vcs.Push.Dialog.v2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578169347343" />
     <state x="771" y="480" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577997676885">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="771" y="480" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577997676885" />
-    <state x="524" y="300" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1577841586573">
+    <state x="524" y="300" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1578403600290">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="524" y="300" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1577841586573" />
+    <state x="524" y="300" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578403600290" />
     <state x="605" y="150" width="710" height="819" key="find.popup" timestamp="1578060521252">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
     <state x="605" y="150" width="710" height="819" key="find.popup/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578060521252" />
-    <state x="616" y="260" key="run.anything.popup" timestamp="1578063176582">
+    <state x="616" y="260" width="672" height="677" key="run.anything.popup" timestamp="1578405069314">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
-    <state x="616" y="260" key="run.anything.popup/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578063176582" />
+    <state x="616" y="260" width="672" height="677" key="run.anything.popup/-1366.40.1366.728/0.40.1920.1040@0.40.1920.1040" timestamp="1578405069314" />
     <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1577957070686">
       <screen x="0" y="40" width="1920" height="1040" />
     </state>
@@ -278,10 +300,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/blockide/blockide/controller/ConvertController.java</url>
           <line>16</line>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

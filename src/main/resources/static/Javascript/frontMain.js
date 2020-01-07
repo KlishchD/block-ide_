@@ -109,6 +109,7 @@ $(document).ready(function () {
             data: JSON.stringify({"graph": { "blocks": blocks}, "lang" : ($("#languageSelection").val() === "C++" ? "cpp" : "java")}),
             success : function (data) {
                 document.getElementById("code").innerText = data;
+                hljs.highlightBlock(document.getElementById("code"));
             }
         });
     });

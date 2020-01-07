@@ -18,6 +18,8 @@
 <script src="Javascript/frontMain.js" type="text/javascript"></script>
 <script src="Javascript/addBlock.js" type="text/javascript"></script>
 <script src="Javascript/connections.js" type="text/javascript"></script>
+<script src="Javascript/savaAndLoad.js" type="text/javascript"></script>
+
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/xcode.min.css">
 <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
@@ -37,12 +39,10 @@
         <button class="btn btn-primary" id="while" type="button"> While</button>
         <button class="btn btn-primary" id="forTo" type="button"> For to</button>
         <button class="btn btn-primary" id="forDownTo" type="button"> For down to</button>
-        <!--<button class="btn btn-primary" id="Assign" type="button"> Assign</button> -->
+        <button class="btn btn-primary" id="assign" type="button"> Assign</button>
         <button class="btn btn-primary" id="var" type="button"> Var</button>
-        <!-- TODO : JS for : creating variable -->
-        <!-- TODO : JS for : for to and for down to -->
-        <!--<button class="btn btn-secondary" id="Save" type="button"> Save</button>
-        <button class="btn btn-secondary" id="Load" type="button"> Load</button>-->
+        <button class="btn btn-secondary" id="save" type="button"> Save</button>
+        <input class="btn btn-secondary" id="load" type="button"> Load</input>
         <button class="btn btn-secondary" id="delete" type="button"> Delete Block</button>
         <button class="btn btn-secondary" id="convert" type="button"> Convert</button>
 
@@ -71,9 +71,7 @@
             <option value="Java"> Java</option>
         </select>
         <hr style="margin-top: 5px; margin-bottom: 5px; background: white">
-        <pre><code id = "code" class="cpp">
-            int a;
-            int b;
+        <pre><code id = "code" class="c++ java">
         </code></pre>
     </div>
 </div>
