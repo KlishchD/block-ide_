@@ -17,69 +17,56 @@ $(document).ready(function () {
     $("#print").click(function () {
         $("#workplace").prepend("<p id =" + last + " class = 'block' > Print </p>");
         setup("print");
-        let text = prompt("Type text");
-        blocks[last].addArgument("expresion", text);
+        blocks[last].addArgument("text", null);
         ++last;
     });
 
     $("#read").click(function () {
-        $("#workplace").prepend("<p id =" + last + " class = 'block' > Read : </p>");
+        $("#workplace").prepend("<p id =" + last + " class = 'block' > Read </p>");
         setup("read");
-        let text = prompt("Type variable name");
-        blocks[last].addArgument("variableName", text);
-        text = prompt("Type variable type");
-        blocks[last].addArgument("variableType", text);
+        blocks[last].addArgument("variableName", null);
+        blocks[last].addArgument("variableType", null);
         ++last;
     });
     $("#var").click(function () {
         $("#workplace").prepend("<p id =" + last + " class = 'block' > Var </p>");
         setup("var");
-        let text = prompt("Type variable name");
-        blocks[last].addArgument("variableName", text);
-        text = prompt("Type variable type");
-        blocks[last].addArgument("variableType", text);
+        blocks[last].addArgument("variableName", null);
+        blocks[last].addArgument("variableType", null);
         ++last;
     });
     $("#if").click(function () {
         $("#workplace").prepend("<p id =" + last + " class = 'block' > If </p>");
         setup("if");
-        let text = prompt("Type condition");
-        blocks[last].addArgument("condition", text);
+        blocks[last].addArgument("condition", null);
         ++last;
     });
     $("#while").click(function () {
         $("#workplace").prepend("<p id =" + last + " class = 'block' > While </p>");
         setup("while");
-        let text = prompt("Type condition");
-        blocks[last].addArgument("condition", text);
+        blocks[last].addArgument("condition", null);
         ++last;
     });
 
     $("#forTo").click(function () {
         $("#workplace").prepend("<p id = " + last + " class = 'block' > For to </p>");
         setup("forTo");
-        let text = prompt("Type lover bound");
-        blocks[last].addArgument("lowerBound", text);
-        text = prompt("Type upper bound");
-        blocks[last].addArgument("upperBound", text);
+        blocks[last].addArgument("lowerBound", null);
+        blocks[last].addArgument("upperBound", null);
         ++last;
     });
     $("#forDownTo").click(function () {
         $("#workplace").prepend("<p id = " + last + " class = 'block' > For down to </p>");
         setup("forDownTo");
-        let text = prompt("Type lover bound");
-        blocks[last].addArgument("lowerBound", text);
-        text = prompt("Type upper bound");
-        blocks[last].addArgument("upperBound", text);
+        blocks[last].addArgument("lowerBound", null);
+        blocks[last].addArgument("upperBound", null);
         ++last;
     });
     $("#assign").click(function () {
         $("#workplace").prepend("<p id =" + last + " class = 'block' > Assign </p>");
         setup("assign");
-        let text = prompt("Type expresion");
-        blocks[last].addArgument("expresion", text);
-        prompt("Type variable name");
-        blocks[last].addArgument("variableName", text);
+        blocks[last].addArgument("expresion", null);
+        blocks[last].addArgument("variableName", null);
         ++last;
     });
 });

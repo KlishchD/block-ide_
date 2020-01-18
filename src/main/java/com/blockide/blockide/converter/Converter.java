@@ -19,7 +19,6 @@ public class Converter {
         if (v == null || v < 0) {
             return new StringBuilder();
         }
-
         BlockResolver blockResolver = BlockResolver.getInstance();
         BlockModel blockModel = g.get(v);
         StringBuilder buff = new StringBuilder();

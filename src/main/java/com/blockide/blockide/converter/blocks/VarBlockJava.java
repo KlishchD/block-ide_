@@ -38,9 +38,11 @@ public class VarBlockJava extends Block {
                 code = String.format("String %s;", variableName);
                 break;
             case "int":
+            case "integer":
                 code = String.format("int %s;", variableName);
                 break;
             case "boolean":
+            case "bool":
                 code = String.format("boolean %s;", variableName);
                 break;
             case "double":

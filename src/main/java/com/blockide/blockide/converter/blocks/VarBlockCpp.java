@@ -38,9 +38,11 @@ public class VarBlockCpp extends Block {
                 code = String.format("string %s;", variableName);
                 break;
             case "int":
+            case "integer":
                 code = String.format("int %s;", variableName);
                 break;
             case "boolean":
+            case "bool":
                 code = String.format("bool %s;", variableName);
                 break;
             case "double":

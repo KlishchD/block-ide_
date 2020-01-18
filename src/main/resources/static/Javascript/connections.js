@@ -158,7 +158,7 @@ $(document).keydown(function (e) {
     }
 
     if (e.which === 46) {
-        deleteConnectoin(from, to);
+        deleteConnection(from, to);
         from = null;
         to = null;
     }

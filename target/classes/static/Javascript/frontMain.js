@@ -94,6 +94,58 @@ $(document).ready(function () {
     blocks.push(new Block(0, "start", $("#0").offset().left, $("#0").offset().top));
     $(document).on("click", ".block", function (e) {
         blockSelected = e.target.id;
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            let name = blocks[blockSelected].getArguments()[i].name, value = blocks[blockSelected].getArguments()[i].value;
+            if (name == "variableName") {
+                $("#varName").prop("value", value);
+            }
+            if (name == "variableType") {
+                $("#varType").prop("value", value);
+            }
+            if (name == "condition") {
+                $("#condition").prop("value", value);
+            }
+            if (name == "text") {
+                $("#text").prop("value", value);
+            }
+            if (name == "lowerBound") {
+                $("#lowerBound").prop("value", value);
+            }
+            if (name == "upperBound") {
+                $("#upperBound").prop("value", value);
+            }
+        }
+        $("#varName").prop("value", "");
+        $("#varType").prop("value", "");
+        $("#condition").prop("value", "");
+        $("#expresion").prop("value", "");
+        $("#text").prop("value", "");
+        $("#lowerBound").prop("value", "");
+        $("#upperBound").prop("value", "");
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            let name = blocks[blockSelected].getArguments()[i].name, value = blocks[blockSelected].getArguments()[i].value;
+            if (name == "variableName") {
+                $("#varName").prop("value", value);
+            }
+            if (name == "variableType") {
+                $("#varType").prop("value", value);
+            }
+            if (name == "condition") {
+                $("#condition").prop("value", value);
+            }
+            if (name == "text") {
+                $("#text").prop("value", value);
+            }
+            if (name == "lowerBound") {
+                $("#lowerBound").prop("value", value);
+            }
+            if (name == "upperBound") {
+                $("#upperBound").prop("value", value);
+            }
+            if (name == "expresion") {
+                $("#expresion").prop("value", value);
+            }
+        }
         if (crtlPressed) {
             from = e.target.id;
         }
@@ -102,6 +154,20 @@ $(document).ready(function () {
         }
     });
     $(document).on("click", "#convert", function (e) {
+        let flag = false;
+        for (let i = 0; i < blocks.length; ++i) {
+            for (let j = 0; j > blocks[i].getArguments().length; ++j) {
+                if (blocks[i].getArguments()[j].value === null) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag) break;
+        }
+        if (flag) {
+            alert ("Not all parameters set.");
+            return;
+        }
         $.ajax({
             url: "/convert",
             type: "POST",
@@ -113,81 +179,170 @@ $(document).ready(function () {
             }
         });
     });
-});
-/*
-    $("#Delete").click(function () {
+
+    $("#delete").click(function () {
         if (blockSelected === "0") {
-            alert("Start block deny to delete");
+            alert("Start block is forbidden for deleting");
             return;
         }
         if (blockSelected === null) {
-            alert("Element haven't selected");
+            alert("You haven't selected any block");
             return;
         }
-        $("#" + blockSelected).remove();
-        $("#line" + blockSelected).remove();
-        $("#lineIn" + blockSelected).remove();
-        let currnode = blockSelected;
-        if (inclusive[currnode]) {
-            while (currnode !== null) {
-                let next = fromTo[currnode];
-                if (inclusive[currnode]) {
-                    next = inFromTo[currnode];
+        for (let i = 0; i < blocks.length; ++i) {
+            if (blocks[i].getNextId() === blockSelected) {
+                $("#line" + i + "o" + blockSelected).remove();
+                blocks[i].setNextId(null);
+            }
+            let flag = false;
+            for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
+                if (blocks[i].getChildrens()[j] === blockSelected) {
+                    $("#line" + i + "o" + blockSelected).remove();
+                    f = true;
                 }
-                console.log("CRAS = ", currnode, " ", next);
-                $("#lineIn" + currnode).css("background", "black");
-                $("#lineIn" + currnode).attr("id", "line" + currnode);
-                let left = currnode;
-                let right = fromTo[currnode];
-                fromTo[left] = right;
-                toFrom[right] = left;
-                inFromTo[left] = null;
-                inToFrom[right] = null;
-                inclusive[currnode] = false;
-                currnode = next;
+            }
+            if (flag) {
+                let newChildrens = [];
+                for (let j = 0; j < blocks[i].getArguments().length; ++j) {
+                    if (blocks[i].getChildrens()[j] !== blockSelected) {
+                        newChildrens.push(blocks[i].getChildrens()[j]);
+                    }
+                }
+                blocks[i].setChildrens(newChildrens);
+                break;
             }
         }
-        if (toFrom[blockSelected] !== null) {
-            $("#line" + toFrom[blockSelected]).remove();
-            fromTo[toFrom[blockSelected]] = null;
-            toFrom[blockSelected] = null;
+        for (let i = 0; i < blocks[blockSelected].getChildrens().length; ++i) {
+            $("#line" + blockSelected + "o" + blocks[blockSelected].getChildrens()[i]).remove();
         }
-        if (fromTo[blockSelected] !== null) {
-            toFrom[fromTo[blockSelected]] = null;
-        }
-
-        if (inToFrom[blockSelected] !== null) {
-            $("#lineIn" + inToFrom[blockSelected]).remove();
-            inFromTo[inToFrom[blockSelected]] = null;
-            inToFrom[blockSelected] = null;
-        }
-        if (inFromTo[blockSelected] !== null) {
-            inToFrom[inFromTo[blockSelected]] = null;
-        }
-
-        fromTo[blockSelected] = null;
-        inFromTo[blockSelected] = null;
-        blockSelected = null;
+        $("#line" + blockSelected + "o" + blocks[blockSelected].getNextId()).remove();
+        $("#" + blockSelected).remove();
     });
 
-    $(document).on("click", ".Block", function (e) {
-        if (crtlPressed) {
-            from = e.target.id;
-        }
-        if (shiftPressed) {
-            to = e.target.id;
-        }
-        if (!crtlPressed && !shiftPressed) {
-            if (blockSelected != null) {
-                $("#" + blockSelected).css("border-width", "0px");
+    $("#varName").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "variableName") {
+                blocks[blockSelected].getArguments()[i].value = $("#varName").val();
             }
-            blockSelected = e.target.id;
-            $("#" + blockSelected).css("border-width", "2px");
-            $("#" + blockSelected).css("border-style", "solid");
-            $("#" + blockSelected).css("border-color", "white");
         }
-        console.log(crtlPressed, " ", shiftPressed);
-    });*/
+    });
+    $("#expresion").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "expresion") {
+                blocks[blockSelected].getArguments()[i].value = $("#expresion").val();
+            }
+        }
+    });
+    $("#condition").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "condition") {
+                blocks[blockSelected].getArguments()[i].value = $("#condition").val();
+            }
+        }
+    });
+    $("#text").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "text") {
+                blocks[blockSelected].getArguments()[i].value = $("#text").val();
+            }
+        }
+    });
+    $("#lowerBound").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "lowerBound") {
+                blocks[blockSelected].getArguments()[i].value = $("#lowerBound").val();
+            }
+        }
+    });
+    $("#upperBound").change(function () {
+        for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+            if (blocks[blockSelected].getArguments()[i].name == "upperBound") {
+                blocks[blockSelected].getArguments()[i].value = $("#upperBound").val();
+            }
+        }
+    });
+    $("#varType").change(function () {
+        $( "#varType option:selected" ).each(function() {
+            for (let i = 0; i < blocks[blockSelected].getArguments().length; ++i) {
+                if (blocks[blockSelected].getArguments()[i].name == "variableType") {
+                    blocks[blockSelected].getArguments()[i].value = $( this ).text();
+                }
+            }
+        });
+    })
+});
+$(document).click(function () {
+    if (blockSelected == null) {
+        $("#varName").prop("disabled", true);
+        $("#varType").prop("disabled", true);
+        $("#condition").prop("disabled", true);
+        $("#expresion").prop("disabled", true);
+        $("#text").prop("disabled", true);
+        $("#lowerBound").prop("disabled", true);
+        $("#upperBound").prop("disabled", true);
+        return;
+    }
+    let name = $("#" + blockSelected).text();
+    if (name == " Var " || name == " Read ") {
+        $("#varName").prop("disabled", false);
+        $("#varType").prop("disabled", false);
+        $("#condition").prop("disabled", true);
+        $("#expresion").prop("disabled", true);
+        $("#text").prop("disabled", true);
+        $("#lowerBound").prop("disabled", true);
+        $("#upperBound").prop("disabled", true);
+        return;
+    }
+    if (name == " Print ") {
+        $("#varName").prop("disabled", true);
+        $("#varType").prop("disabled", true);
+        $("#condition").prop("disabled", true);
+        $("#expresion").prop("disabled", true);
+        $("#text").prop("disabled", false);
+        $("#lowerBound").prop("disabled", true);
+        $("#upperBound").prop("disabled", true);
+        return;
+    }
+    if (name == " If " || name == " While ") {
+        $("#varName").prop("disabled", true);
+        $("#varType").prop("disabled", true);
+        $("#condition").prop("disabled", false);
+        $("#expresion").prop("disabled", true);
+        $("#text").prop("disabled", true);
+        $("#lowerBound").prop("disabled", true);
+        $("#upperBound").prop("disabled", true);
+        return;
+    }
+    if (name == " Assign ") {
+        $("#varName").prop("disabled", false);
+        $("#varType").prop("disabled", true);
+        $("#condition").prop("disabled", true);
+        $("#expresion").prop("disabled", false);
+        $("#text").prop("disabled", true);
+        $("#lowerBound").prop("disabled", true);
+        $("#upperBound").prop("disabled", true);
+        return;
+    }
+    if (name == " For to " || name == " For down to ") {
+        $("#varName").prop("disabled", true);
+        $("#varType").prop("disabled", true);
+        $("#condition").prop("disabled", true);
+        $("#expresion").prop("disabled", true);
+        $("#text").prop("disabled", true);
+        $("#lowerBound").prop("disabled", false);
+        $("#upperBound").prop("disabled", false);
+        return;
+    }
+    $("#varName").prop("disabled", true);
+    $("#varType").prop("disabled", true);
+    $("#condition").prop("disabled", true);
+    $("#expresion").prop("disabled", true);
+    $("#text").prop("disabled", true);
+    $("#lowerBound").prop("disabled", true);
+    $("#upperBound").prop("disabled", true);
+});
+
+
 
 /*,*/
-// TODO: додати вкладеність
+// TODO: Ð´Ð¾Ð´Ð°Ñ‚Ð¸ Ð²ÐºÐ»Ð°Ð´ÐµÐ½Ñ–ÑÑ‚ÑŒ

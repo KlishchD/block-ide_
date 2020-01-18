@@ -5,27 +5,27 @@ import com.blockide.blockide.model.BlockModel;
 
 public class PrintBlockJava extends Block {
 
-    private static final String EXPRESION = "expresion";
+    private static final String TEXT = "text";
 
-    private String expresion;
+    private String text;
 
     public PrintBlockJava(BlockModel model) {
         super(model);
         if (model.getArguments() == null) {
-            throw new IllegalArgumentException("Arguments are required for read block cpp");
+            throw new IllegalArgumentException("Arguments are required for print block cpp");
         }
         for (Argument arguments : model.getArguments()) {
-            if (EXPRESION.equals(arguments.getName())) {
-                expresion = arguments.getValue();
+            if (TEXT.equals(arguments.getName())) {
+                text = arguments.getValue();
             }
         }
-        if (expresion == null) {
-            throw new IllegalArgumentException("Variable name is required for print block");
+        if (text == null) {
+            throw new IllegalArgumentException("Text is required for print block");
         }
     }
 
     @Override
     public String generateCode() {
-        return String.format("System.out.println(%s);", expresion);
+        return String.format("System.out.println(%s);", text);
     }
 }

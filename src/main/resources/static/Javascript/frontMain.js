@@ -93,7 +93,11 @@ $(document).keydown(function (e) {
 $(document).ready(function () {
     blocks.push(new Block(0, "start", $("#0").offset().left, $("#0").offset().top));
     $(document).on("click", ".block", function (e) {
+        $("#" + blockSelected).css("border-width", "0px");
         blockSelected = e.target.id;
+        $("#" + blockSelected).css("border-width", "3px");
+        $("#" + blockSelected).css("border-color", "white");
+
         if (crtlPressed) {
             from = e.target.id;
         }
@@ -113,81 +117,35 @@ $(document).ready(function () {
             }
         });
     });
-});
-/*
-    $("#Delete").click(function () {
+
+    $("#delete").click(function () {
         if (blockSelected === "0") {
-            alert("Start block deny to delete");
+            alert("Start block is forbidden for deleting");
             return;
         }
         if (blockSelected === null) {
-            alert("Element haven't selected");
+            alert("You haven't selected any block");
             return;
         }
-        $("#" + blockSelected).remove();
-        $("#line" + blockSelected).remove();
-        $("#lineIn" + blockSelected).remove();
-        let currnode = blockSelected;
-        if (inclusive[currnode]) {
-            while (currnode !== null) {
-                let next = fromTo[currnode];
-                if (inclusive[currnode]) {
-                    next = inFromTo[currnode];
+        for (let i = 0; i < blocks.length; ++i) {
+            if (blocks[i].getNextId() === blockSelected) {
+                $("#line" + i + "o" + blockSelected).remove();
+            }
+            for (let j = 0; j < blocks[i].getChildrens().length; ++j) {
+                if (blocks[i].getChildrens()[j] === blockSelected) {
+                    $("#line" + i + "o" + blockSelected).remove();
                 }
-                console.log("CRAS = ", currnode, " ", next);
-                $("#lineIn" + currnode).css("background", "black");
-                $("#lineIn" + currnode).attr("id", "line" + currnode);
-                let left = currnode;
-                let right = fromTo[currnode];
-                fromTo[left] = right;
-                toFrom[right] = left;
-                inFromTo[left] = null;
-                inToFrom[right] = null;
-                inclusive[currnode] = false;
-                currnode = next;
             }
         }
-        if (toFrom[blockSelected] !== null) {
-            $("#line" + toFrom[blockSelected]).remove();
-            fromTo[toFrom[blockSelected]] = null;
-            toFrom[blockSelected] = null;
+        for (let i = 0; i < blocks[blockSelected].getChildrens().length; ++i) {
+            $("#line" + blockSelected + "o" + blocks[blockSelected].getChildrens()[i]).remove();
         }
-        if (fromTo[blockSelected] !== null) {
-            toFrom[fromTo[blockSelected]] = null;
-        }
-
-        if (inToFrom[blockSelected] !== null) {
-            $("#lineIn" + inToFrom[blockSelected]).remove();
-            inFromTo[inToFrom[blockSelected]] = null;
-            inToFrom[blockSelected] = null;
-        }
-        if (inFromTo[blockSelected] !== null) {
-            inToFrom[inFromTo[blockSelected]] = null;
-        }
-
-        fromTo[blockSelected] = null;
-        inFromTo[blockSelected] = null;
-        blockSelected = null;
+        $("#line" + blockSelected + "o" + blocks[blockSelected].getNextId()).remove();
+        $("#" + blockSelected).remove();
     });
+});
 
-    $(document).on("click", ".Block", function (e) {
-        if (crtlPressed) {
-            from = e.target.id;
-        }
-        if (shiftPressed) {
-            to = e.target.id;
-        }
-        if (!crtlPressed && !shiftPressed) {
-            if (blockSelected != null) {
-                $("#" + blockSelected).css("border-width", "0px");
-            }
-            blockSelected = e.target.id;
-            $("#" + blockSelected).css("border-width", "2px");
-            $("#" + blockSelected).css("border-style", "solid");
-            $("#" + blockSelected).css("border-color", "white");
-        }
-        console.log(crtlPressed, " ", shiftPressed);
-    });*/
+
 
 /*,*/
-// TODO: додати вкладеність
+// TODO: Ð´Ð¾Ð´Ð°Ñ‚Ð¸ Ð²ÐºÐ»Ð°Ð´ÐµÐ½Ñ–ÑÑ‚ÑŒ
