@@ -15,6 +15,7 @@ public class ConvertController {
     @PostMapping
     public String convert(@RequestBody ConvertRequest request) {
         Converter converter = new Converter("cpp".equalsIgnoreCase(request.getLang()) ? Lang.CPP : Lang.JAVA);
+        System.out.println(request.getGraph().getBlocks().size());
         return converter.generateCode(request.getGraph());
     }
 }

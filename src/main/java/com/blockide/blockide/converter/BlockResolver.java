@@ -58,7 +58,7 @@ public final class BlockResolver {
             return (Block) clazz.getConstructor(BlockModel.class).newInstance(model);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException ex) {
             // ignore
-            throw new IllegalStateException("Cannot instantiate block. Exception: " + ex.toString());
+            throw new IllegalStateException("Cannot instantiate block. Exception: " + ex.toString() );
         }
     }
 }

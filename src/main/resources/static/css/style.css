@@ -1,34 +1,77 @@
-
-
-.print {
-    background-image: url("../img/print.png");
-    background-size: 100%;
-    width: 200px;
-    height: 100px;
-    display: inline-block;
-    text-align: center;
-    color: blue;
-    font-family: Impact;
-    font-size: 40px;
+.center_hex {
+    padding: 0px;
 }
 
-.read {
-    background-image: url("../img/read.png");
-    background-size: 100%;
+.start {
     width: 200px;
     height: 100px;
+    background: #9CD6C0;
+    border-radius: 100px/50px;
+}
+
+.left_hex {
+    width: 0;
+    height: 0;
+    border-top: 12px solid gray;
+    border-right: 10px solid #24375B;
+    border-bottom: 12px solid gray;
+}
+
+.right_hex {
+    width: 0;
+    height: 0;
+    border-top: 12px solid gray;
+    border-left: 10px solid #24375B;
+    border-bottom: 12px solid gray;
+}
+
+.hex {
     display: inline-block;
+    vertical-align: top;
+}
+
+.if_top {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 12px solid #24375B;
+}
+
+.if_bottom {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 12px solid #24375B;
+}
+
+.prrd {
+    margin-left: 0;
+    width: 100px;
+    height: 20px;
+    -webkit-transform: skew(10deg);
+    -moz-transform: skew(10deg);
+    -o-transform: skew(10deg);
+    transform: skew(10deg);
+    background: #24375B;
+}
+
+.prrd1 {
+    transform: skew(-10deg);
+}
+
+.block {
+    margin: 0px;
+    padding: 0px;
     text-align: center;
-    color: blue;
-    font-family: Impact;
-    font-size: 40px;
 }
 
 #workplace {
     margin-top: 10px;
     margin-left: 10px;
     background: gray;
-    height:auto !important;        
+    height: auto !important;
     width: 100%;
 }
 
@@ -37,7 +80,7 @@
     margin-left: 10px;
     margin-right: 10px;
     background: gray;
-    height:auto !important;    
+    height: auto !important;
     width: 100%;
 }
 
@@ -51,7 +94,7 @@
     justify-content: flex-start;
 }
 
-#laguage_selectoin {
+#languageSelection {
     background: White;
     border-style: solid;
     border-width: 2px;
